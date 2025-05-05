@@ -24,7 +24,7 @@ const Work = () => {
               Thoughtfully built. Purposefully crafted
             </p>
             <p className='text-base sm:text-lg md:text-xl tracking-tight text-gray-400 font-light'>
-              At Sol., we focus on creating reliable, elegant digital solutions tailored to each client's unique goals. With a careful balance of design, technology, and strategy, we help ideas take shape and grow. Our approach is collaborative, detail-oriented, and rooted in a commitment to quality — ensuring every product we build is as seamless as it is scalable.
+              At Sol., we focus on creating reliable, elegant digital solutions tailored to each client&apos;s unique goals. With a careful balance of design, technology, and strategy, we help ideas take shape and grow. Our approach is collaborative, detail-oriented, and rooted in a commitment to quality — ensuring every product we build is as seamless as it is scalable.
             </p>
           </div>
           

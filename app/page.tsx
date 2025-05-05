@@ -1,6 +1,7 @@
-import ModelViewer from "@/components/3dModel";
+
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
+import Testimonials from "@/components/Testimonials";
 import Work from "@/components/Work";
 
 
@@ -11,6 +12,7 @@ export default function Home() {
     <Hero />
     <Features />
     <Work />
+    <Testimonials />
     </>
   );
 }
