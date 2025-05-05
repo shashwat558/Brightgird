@@ -12,7 +12,7 @@ const font = Roboto_Mono({
 
 const Hero = () => {
   return (
-    <div className="relative w-full h-[90vh]   pt-0 border-b-[0.5px] border-gray-800">
+    <div className="relative w-full h-[100vh]   pt-0 border-b-[0.5px] border-gray-800">
         
       
       
