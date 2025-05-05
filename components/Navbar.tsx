@@ -35,6 +35,7 @@ const Robotomono = Roboto_Mono({
 const Navbar = () => {
     const [isHovering, setIsHovering] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
    useEffect(() => {
     const handleScroll = () => {
@@ -51,35 +52,26 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [isScrolled]);
   return (
+    
     <AnimatePresence>
-         <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[80%] h-[160px] bg-gradient-to-b from-yellow-400/80 via-white/30 to-transparent blur-[160px] rounded-full pointer-events-none opacity-90 z-[-10]"></div>
-
-       
-        <div className="absolute top-[-80px] left-1/2 -translate-x-1/2 w-[65%] h-[140px] bg-gradient-to-b from-yellow-300/70 via-white/20 to-transparent blur-[150px] rounded-full pointer-events-none opacity-80 z-[-10]"></div>
-
-
-        <div className="absolute top-[-60px] left-1/2 -translate-x-1/2 w-[50%] h-[120px] bg-gradient-to-b from-yellow-200/60 via-white/20 to-transparent blur-[140px] rounded-full pointer-events-none opacity-70 z-[-10]"></div>
-
-
-        <div className="absolute top-[-40px] left-1/2 -translate-x-1/2 w-[35%] h-[100px] bg-gradient-to-b from-yellow-100/50 via-white/20 to-transparent blur-[130px] rounded-full pointer-events-none opacity-60 z-[-10]"></div>
-
-
-        <div className="absolute top-[-20px] left-1/2 -translate-x-1/2 w-[20%] h-[80px] bg-gradient-to-b from-yellow-50/40 via-white/10 to-transparent blur-[120px] rounded-full pointer-events-none opacity-50 z-[-10]"></div>
+         
         
-    <motion.nav initial={{ top: 5 }}
-        animate={{ top: isScrolled ? 0 : 5 }}
+        
+    <motion.nav initial={{ top: 10 }}
+        animate={{ top: isScrolled ? 0 : 10 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className={`w-full z-50 flex justify-center items-center  backdrop-blur-xs ${Robotomono.className} ${isScrolled ? "bg-gradient-to-b from-black/30 to-white/10" : "bg-none"}`}
+        className={`w-full  z-50 flex justify-center items-center   ${Robotomono.className} ${isScrolled ? "bg-gradient-to-b from-black/30 to-white/10 backdrop-blur-xs" : "bg-transparent"}`}
         style={{ position: "sticky" }}>
             
-        <div className='xl:w-2/3 w-full '>
-          <div className='flex justify-between items-center'>
-            <div className='flex items-center gap-5'>
+        <div className='xl:w-2/3 md:p-3 max-sm:p-4  w-full bg-transparent'>
+          <div className='flex justify-between items-center bg-transparent'>
+            <div className='flex items-center gap-5 '>
                 <Image src={"/logo.png"} alt='logo' width={100} height={100}/>
+                {isMenuOpen ? }
 
-                <div className='flex items-center gap-10'>
+                <div className='flex items-center gap-10 max-sm:hidden'>
                     {navLinks.map((link, index) => (
                     <Link href={link.link} key={index} className='text-md  tracking-wide text-gray-300 hover:text-white'>
                         {link.name}
