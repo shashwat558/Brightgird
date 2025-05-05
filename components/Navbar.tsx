@@ -1,11 +1,12 @@
 "use client"
 
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Roboto_Mono } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import {AnimatePresence, motion} from "framer-motion";
+
 
 const navLinks = [
     {
@@ -53,11 +54,26 @@ const Navbar = () => {
     }, []);
   return (
     <AnimatePresence>
+         <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[80%] h-[160px] bg-gradient-to-b from-yellow-400/80 via-white/30 to-transparent blur-[160px] rounded-full pointer-events-none opacity-90 z-[-10]"></div>
+
+       
+        <div className="absolute top-[-80px] left-1/2 -translate-x-1/2 w-[65%] h-[140px] bg-gradient-to-b from-yellow-300/70 via-white/20 to-transparent blur-[150px] rounded-full pointer-events-none opacity-80 z-[-10]"></div>
+
+
+        <div className="absolute top-[-60px] left-1/2 -translate-x-1/2 w-[50%] h-[120px] bg-gradient-to-b from-yellow-200/60 via-white/20 to-transparent blur-[140px] rounded-full pointer-events-none opacity-70 z-[-10]"></div>
+
+
+        <div className="absolute top-[-40px] left-1/2 -translate-x-1/2 w-[35%] h-[100px] bg-gradient-to-b from-yellow-100/50 via-white/20 to-transparent blur-[130px] rounded-full pointer-events-none opacity-60 z-[-10]"></div>
+
+
+        <div className="absolute top-[-20px] left-1/2 -translate-x-1/2 w-[20%] h-[80px] bg-gradient-to-b from-yellow-50/40 via-white/10 to-transparent blur-[120px] rounded-full pointer-events-none opacity-50 z-[-10]"></div>
+        
     <motion.nav initial={{ top: 5 }}
         animate={{ top: isScrolled ? 0 : 5 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className={`w-full z-50 flex justify-center items-center  ${Robotomono.className}`}
+        className={`w-full z-50 flex justify-center items-center  backdrop-blur-xs ${Robotomono.className} ${isScrolled ? "bg-gradient-to-b from-black/30 to-white/10" : "bg-none"}`}
         style={{ position: "sticky" }}>
+            
         <div className='xl:w-2/3 w-full '>
           <div className='flex justify-between items-center'>
             <div className='flex items-center gap-5'>
@@ -65,13 +81,14 @@ const Navbar = () => {
 
                 <div className='flex items-center gap-10'>
                     {navLinks.map((link, index) => (
-                    <Link href={link.link} key={index} className='text-md font-semibold tracking-wide text-gray-400 hover:text-gray-100'>
+                    <Link href={link.link} key={index} className='text-md  tracking-wide text-gray-300 hover:text-white'>
                         {link.name}
                     </Link>
                 ))}
                 </div>
 
             </div>
+            <div className='flex items-center gap-3'>
             <motion.button
             initial={{ scale: 1 }}
             whileHover={{
@@ -101,6 +118,8 @@ const Navbar = () => {
                 )}
             </AnimatePresence>
             </motion.button>
+           
+            </div>
 
 
 
