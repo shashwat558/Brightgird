@@ -10,7 +10,7 @@ const font = Roboto_Mono({
 
 const Testimonials = () => {
   return (
-   <div>
+   <div className='w-full border-b-[0.3px] border-b-gray-700'>
     
    
     <div className={`${font.className} h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden `}>
