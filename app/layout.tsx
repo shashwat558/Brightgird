@@ -32,7 +32,7 @@ export default function RootLayout({
 
       >
         
-        <Navbar />
+        <Navbar transparent/>
         {children}
       </body>
      

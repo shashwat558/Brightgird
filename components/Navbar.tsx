@@ -1,8 +1,8 @@
 "use client"
 
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import { Roboto_Mono } from 'next/font/google'
-import Image from 'next/image'
+
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import {AnimatePresence, motion} from "framer-motion";
@@ -59,17 +59,18 @@ const Navbar = () => {
          
         
         
-    <motion.nav initial={{ top: 10 }}
-        animate={{ top: isScrolled ? 0 : 10 }}
+    <motion.nav initial={{ top: 15 }}
+        animate={{ top: isScrolled ? 0 : 15 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className={`w-full  z-50 flex justify-center items-center   ${Robotomono.className} ${isScrolled ? "bg-gradient-to-b from-black/30 to-white/10 backdrop-blur-xs" : "bg-transparent"}`}
+        className={`w-full  z-50 flex justify-center items-center   ${Robotomono.className} ${isScrolled ? "bg-gradient-to-b from-black/10 to-black/40 backdrop-blur-md" : "bg-transparent"}`}
         style={{ position: "sticky" }}>
             
-        <div className='xl:w-2/3 md:p-3 max-sm:p-4  w-full bg-transparent'>
+        <div className='xl:w-2/3 md:p-3 max-sm:p-4  w-full bg-transparent pt-5'>
           <div className='flex justify-between items-center bg-transparent'>
             <div className='flex items-center gap-5 '>
-                <Image src={"/logo.png"} alt='logo' width={100} height={100}/>
-                {isMenuOpen ? }
+                {/* <Image src={"/logo.png"} alt='logo' width={100} height={100}/> */}
+                <h1 className={`text-2xl font-bold text-center mb-1`}>Sol.</h1>
+                
 
                 <div className='flex items-center gap-10 max-sm:hidden'>
                     {navLinks.map((link, index) => (
@@ -80,6 +81,7 @@ const Navbar = () => {
                 </div>
 
             </div>
+            <button  onClick={() => setIsMenuOpen(true)} className='xl:hidden ml-8 cursor-pointer md:hidden'><ChevronDown className='w-7 h-7'/></button>
             <div className='flex items-center gap-3'>
             <motion.button
             initial={{ scale: 1 }}
@@ -112,7 +114,7 @@ const Navbar = () => {
             </motion.button>
            
             </div>
-
+      
 
 
 
@@ -121,8 +123,40 @@ const Navbar = () => {
           
         </div>
     </motion.nav>
+    {isMenuOpen && <DropDownMenu onClose={() => setIsMenuOpen(false)}/>}
     </AnimatePresence>
   )
 }
 
 export default Navbar
+
+
+const DropDownMenu = ({ onClose }: { onClose: () => void }) => {
+  return (
+    <motion.div
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -20, opacity: 0 }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      className="fixed top-0 left-0 w-full h-1/2 z-50 bg-black/60 backdrop-blur-md shadow-md flex flex-col items-center justify-center space-y-6 text-white"
+    >
+      {navLinks.map((link, index) => (
+        <Link
+          href={link.link}
+          key={index}
+          className="text-lg font-mono tracking-wide hover:underline"
+          onClick={onClose}
+        >
+          {link.name}
+        </Link>
+      ))}
+
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-6 text-white text-2xl font-bold"
+      >
+        ×
+      </button>
+    </motion.div>
+  );
+};
