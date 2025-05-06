@@ -54,7 +54,7 @@ const Footer = () => {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-sm text-yellow-100/70 text-center"
         >
-          © {new Date().getFullYear()} Your Name. All rights reserved.
+          © {new Date().getFullYear()} Shashwat. All rights reserved.
         </motion.p>
       </div>
     </footer>
