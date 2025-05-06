@@ -1,14 +1,14 @@
 "use client";
 
-
+import { MagicCard } from "../magicui/magic-card";
+import { Roboto_Mono } from "next/font/google";
 
 const font = Roboto_Mono({
     subsets: ["latin"],
     weight: "400"
 })
 
-import { MagicCard } from "../magicui/magic-card";
-import { Roboto_Mono } from "next/font/google";
+
 
 export function FeatureCard({title, icon, description}: {title: string, description: string, icon: React.ReactNode}) {
   

@@ -1,6 +1,8 @@
+"use client"
 import React from 'react'
 import PricingCard from './ui/PricingCard';
 import { Roboto_Mono } from 'next/font/google';
+import {motion} from "framer-motion";
 
 const font = Roboto_Mono({
   subsets: ['latin'],
@@ -52,21 +54,41 @@ const pricingPlans = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: 20 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.4 } }
+};
 
 const Pricing = () => {
   return (
-   <div className={`${font.className} w-full min-h-screen flex flex-col gap-10 items-center mt-10 px-4`}>
+   <div className={`${font.className} w-full min-h-[90vh] flex flex-col gap-10 items-center mt-10 px-4 border-b-[0.4px] border-b-gray-800`}>
+    
   <div className="w-full max-w-5xl text-center">
     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-t from-gray-600 via-gray-400 to-gray-200">
       No Surprises. <br /> Just Value.
     </h1>
   </div>
+  
 
-  <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <motion.div variants={containerVariants} initial="hidden" whileInView={"show"} viewport={{ once: true, amount: 0.3 }} className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     {pricingPlans.map((plan, index) => (
-      <PricingCard key={index} pricingDetails={plan} />
+      <motion.div variants={itemVariants} key={index}>
+        <PricingCard pricingDetails={plan} />
+
+      </motion.div>
+      
     ))}
-  </div>
+  </motion.div>
 </div>
 
   )

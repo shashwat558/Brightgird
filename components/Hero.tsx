@@ -1,9 +1,13 @@
+"use client"
+
 import { Roboto_Mono } from 'next/font/google'
 import React from 'react'
 
 import { Particles } from './magicui/particles'
-import ModelViewer from './3dModel'
-import { Button } from './ui/button'
+
+
+import {motion} from "framer-motion";
+
 
 const font = Roboto_Mono({
     subsets: ["latin"],
@@ -12,7 +16,7 @@ const font = Roboto_Mono({
 
 const Hero = () => {
   return (
-    <div className="relative w-full h-[100vh]   pt-0 border-b-[0.5px] border-gray-800">
+    <div className="relative w-full h-[100vh] flex pt-0 border-b-[0.5px] border-gray-800">
         
       
       
@@ -43,37 +47,78 @@ const Hero = () => {
       }}></div>
 
       <div className="xl:w-2/3 w-full  h-full flex justify-center p-4 z-10 relative overflow-visible ">
-      <div className=' min-h-[300px] flex flex-col justify-start mt-56 items-center max-sm:mt-40'>
-        <div className='shadow-[inset_40px_-52px_17px_136px_rgba(10,10,10,0.5)] p-3 rounded-lg'>
-        <h1 className={`xl:text-[80px] text-[65px] p-2 max-w-[32pc] leading-20 bg-gradient-to-t from-gray-700 via-gray-400 to-gray-300 bg-clip-text text-transparent ${font.className} `}>
-        Elevated by Design
-        </h1>
+      <div className=''>
+          <div className=' min-h-[300px] flex flex-col justify-start mt-56 items-center max-sm:mt-40'>
+            <div className='shadow-[inset_40px_-52px_17px_136px_rgba(10,10,10,0.5)] p-3 rounded-lg'>
+            <motion.h1 
+            initial={{
+              opacity:0, y:40
+            }} 
+            animate = {{
+              opacity:1, y:0
+            }}
+            transition={{
+              duration: 0.6
+            }}
+            className={`xl:text-[80px] text-[65px] p-2 max-w-[32pc] leading-20 bg-gradient-to-t from-gray-700 via-gray-400 to-gray-300 bg-clip-text text-transparent ${font.className} `}>
+            Elevated by Design
+            </motion.h1>
 
-        </div>
-        <div className={`text-[18px] p-2 max-w-[32pc] leading-10 bg-gradient-to-t from-gray-700 via-gray-400 to-gray-300 bg-clip-text text-transparent ${font.className} `}>
-            <p>
-        Engineered for impact — crafted for the ambitious few.
-            </p>
-        </div>
-        <div>
-          <p className={`text-[18px] p-2 max-w-[32pc] leading-10 bg-gradient-to-t from-gray-700 via-gray-400 to-gray-300 bg-clip-text text-transparent ${font.className} `}>
-            Where precision meets purpose — I design and build digital products that not only look great, but perform even better.
+            </div>
+            <div className={`text-[18px] p-2 max-w-[32pc] leading-10 bg-gradient-to-t from-gray-700 via-gray-400 to-gray-300 bg-clip-text text-transparent ${font.className} `}>
+                <motion.p initial={{
+              opacity:0, y:45
+            }} 
+            animate = {{
+              opacity:1, y:0
+            }}
+            transition={{
+              duration: 0.7
+            }}>
+            Engineered for impact — crafted for the ambitious few.
+                </motion.p>
+            </div>
+            <div>
+              <motion.p initial={{
+              opacity:0, y:50
+            }} 
+            animate = {{
+              opacity:1, y:0
+            }}
+            transition={{
+              duration: 0.9
+            }} className={`text-[18px] p-2 max-w-[32pc] leading-10 bg-gradient-to-t from-gray-700 via-gray-400 to-gray-300 bg-clip-text text-transparent ${font.className} `}>
+                Where precision meets purpose — I design and build digital products that not only look great, but perform even better.
+                
+              </motion.p>
+              <motion.button initial={{
+              opacity:0, y:60
+            }} 
+            animate = {{
+              opacity:1, y:0
+            }}
+            transition={{
+              duration: 1
+            }} className={`w-40 h-[50px] ${font.className} rounded-full hover:backdrop-blur-2xl  text-lg cursor-pointer font-semibold border-[0.4px] border-gray-500 mt-3`} >Know more.
+            </motion.button>
+            </div>
+            </div>                 
+
             
-          </p>
-          <Button className={`w-40 h-16 ${font.className} rounded-full hover:backdrop-blur-2xl  text-lg cursor-pointer font-semibold`} variant={"outline"}>Know more.</Button>
-        </div>
-      
-      </div>
+          
+          </div>
+          
+          
 
-        
-      
-      </div>
-      <Particles  
-              className="absolute inset-0 z-0"
-              quantity={70}
-              ease={80}
-              color={"#ffffff"}
-              refresh/>
+            
+          
+          </div>
+                <Particles  
+                  className="absolute inset-0 z-0"
+                  quantity={70}
+                  ease={80}
+                  color={"#ffffff"}
+                  refresh/>
     </div>
   )
 }

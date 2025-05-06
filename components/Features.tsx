@@ -1,5 +1,12 @@
 "use client"
-import { ChartColumnBig, DraftingCompass, Layers, Star, TrendingUp, UserSearch } from 'lucide-react';
+import {
+  ChartColumnBig,
+  DraftingCompass,
+  Layers,
+  Star,
+  TrendingUp,
+  UserSearch,
+} from 'lucide-react';
 import { Roboto_Mono } from 'next/font/google';
 import React from 'react'
 import { FeatureCard } from './ui/featureCard';
@@ -10,32 +17,32 @@ const features = [
   {
     name: "Premium Designs",
     description: "Tailored aesthetics built to elevate your brand identity with timeless elegance.",
-    icon: <Star className='w-8 h-8'/>
+    icon: <Star className='w-8 h-8' />
   },
   {
     name: "Absolute Craftsmanship",
     description: "Every pixel and detail is refined with obsessive attention for a flawless finish.",
-    icon: <DraftingCompass className='h-4 w-4'/>
+    icon: <DraftingCompass className='h-4 w-4' />
   },
   {
     name: "Performance First",
     description: "Optimized for speed, accessibility, and responsiveness across all devices.",
-    icon: <Layers className='h-8 w-8'/>
+    icon: <Layers className='h-8 w-8' />
   },
   {
     name: "Scalable Architecture",
     description: "Engineered to grow with your needs—built on modern, modular foundations.",
-    icon: <TrendingUp className='w-8 h-8'/>
+    icon: <TrendingUp className='w-8 h-8' />
   },
   {
     name: "End-to-End Support",
     description: "From ideation to launch and beyond, we’re with you every step of the journey.",
-    icon: <UserSearch className='w-8 h-8'/>
+    icon: <UserSearch className='w-8 h-8' />
   },
   {
     name: "SEO & Analytics Ready",
     description: "Built with best practices to help you get discovered and understand user behavior.",
-    icon: <ChartColumnBig className='w-8 h-8'/>
+    icon: <ChartColumnBig className='w-8 h-8' />
   }
 ];
 
@@ -43,6 +50,22 @@ const font = Roboto_Mono({
   subsets: ["latin"],
   weight: "400"
 })
+
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+};
 
 const Features = () => {
   return (
@@ -55,15 +78,15 @@ const Features = () => {
         </div>
 
         <LampContainer>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full mt-20 px-2 sm:px-4">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full mt-20 px-2 sm:px-4"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                viewport={{ once: true }}
-              >
+              <motion.div key={index} variants={itemVariants}>
                 <FeatureCard
                   title={feature.name}
                   description={feature.description}
@@ -71,7 +94,7 @@ const Features = () => {
                 />
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </LampContainer>
       </div>
     </div>

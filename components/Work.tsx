@@ -1,18 +1,35 @@
+"use client"
+
 import { Roboto_Mono } from 'next/font/google'
 import Image from 'next/image'
 import React from 'react'
 import { BackgroundBeamsWithCollision } from './ui/background-beams-with-collision'
+import {motion} from "framer-motion";
 
 const font = Roboto_Mono({
     subsets: ["latin"],
     weight: "400"
 })
 
+const containerVariants = {
+  hidden: {
+    opacity: 0, y: 50
+  },
+  show: {
+    opacity: 1, y:0
+    
+  }
+};
+
 const Work = () => {
 
   return (
     <BackgroundBeamsWithCollision>
-    <div className={`${font.className} w-[100vw] min-h-screen flex items-center justify-center border-b-[0.2px] border-b-gray-700 py-12 px-4 sm:px-6 lg:px-8`}>
+    <motion.div variants={containerVariants} initial="hidden"
+            whileInView="show" viewport={{once: true, amount:0.3}} transition={{
+      duration: 1
+
+    }} className={`${font.className} w-[100vw] min-h-screen flex items-center justify-center border-b-[0.2px] border-b-gray-700 py-12 px-4 sm:px-6 lg:px-8`}>
       
         <div className='w-full max-w-6xl h-full flex flex-col lg:flex-row items-center gap-8'>
          
@@ -42,7 +59,7 @@ const Work = () => {
           </div>
         </div>
       
-    </div>
+    </motion.div>
     </BackgroundBeamsWithCollision>
   )
 }

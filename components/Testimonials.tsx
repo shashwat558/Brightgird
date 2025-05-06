@@ -1,6 +1,9 @@
+"use client"
+
 import React from 'react'
 import { InfiniteMovingCards } from './ui/infinite-moving-cards';
 import { Roboto_Mono } from 'next/font/google';
+import {motion} from "framer-motion"
 
 const font = Roboto_Mono({
     subsets: ["latin"],
@@ -8,23 +11,34 @@ const font = Roboto_Mono({
 })
 
 
+
+
 const Testimonials = () => {
   return (
-   <div className='w-full border-b-[0.3px] border-b-gray-700'>
-    
-   
-    <div className={`${font.className} h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden `}>
-        
-        <h1 className='text-5xl font-semibold tracking-wider bg-clip-text text-transparent bg-gradient-to-t from-gray-600 via-gray-400 to-gray-200'>Testimonials</h1>
-      <InfiniteMovingCards
-        items={testimonials}
-        direction="right"
-        speed="slow"
+    <div className="w-full border-b-[0.3px] border-b-gray-700 relative overflow-hidden">
+      
+      
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 0.4, x: 0 }}
+        transition={{ duration: 2, ease: 'easeOut' }}
+        className="absolute left-[-200px] top-1/3 w-[500px] h-[600px] z-0 rotate-[25deg] bg-gradient-to-br from-yellow-300 via-yellow-100/10 to-transparent opacity-20 blur-2xl pointer-events-none"
       />
+
+      
+      <div className={`${font.className} h-[40rem] relative z-10 rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center`}>
+        <h1 className='text-5xl font-semibold tracking-wider bg-clip-text text-transparent bg-gradient-to-t from-gray-600 via-gray-400 to-gray-200'>
+          Testimonials
+        </h1>
+        <InfiniteMovingCards
+          items={testimonials}
+          direction="right"
+          speed="slow"
+        />
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
 export default Testimonials
 
