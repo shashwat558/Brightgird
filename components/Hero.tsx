@@ -48,7 +48,7 @@ const Hero = () => {
 
       <div className="xl:w-2/3 w-full  h-full flex justify-center p-4 z-10 relative overflow-visible ">
       <div className=''>
-          <div className=' min-h-[300px] flex flex-col justify-start mt-56 items-center max-sm:mt-40'>
+          <div className=' min-h-[300px] flex flex-col justify-start mt-64 items-center max-sm:mt-40'>
             <div className='shadow-[inset_40px_-52px_17px_136px_rgba(10,10,10,0.5)] p-3 rounded-lg'>
             <motion.h1 
             initial={{

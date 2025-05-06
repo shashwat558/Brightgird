@@ -24,7 +24,7 @@ const font = Roboto_Mono({
 
 const Contact = () => {
   return (
-    <div className={`${font.className} relative min-h-screen flex items-center justify-center bg-[#0a0a0a] px-4 py-20 overflow-hidden`}>
+    <div id='contact' className={`${font.className} relative min-h-screen flex items-center justify-center bg-[#0a0a0a] px-4 py-20 overflow-hidden`}>
       {/* Aurora Blur Glow */}
      <motion.div
       initial={{ opacity: 0, x: -100 }}

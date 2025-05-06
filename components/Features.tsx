@@ -69,7 +69,7 @@ const itemVariants = {
 
 const Features = () => {
   return (
-    <div className="w-full min-h-screen py-10 px-4 sm:px-6 lg:px-8 flex justify-center items-center border-b border-gray-800">
+    <div id='why-choose-us' className="w-full min-h-screen py-10 px-4 sm:px-6 lg:px-8 flex justify-center items-center border-b border-gray-800">
       <div className="max-w-7xl w-full flex flex-col items-center">
         <div className="text-center">
           <h1 className={`${font.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold bg-gradient-to-t from-gray-700 via-gray-500 to-gray-300 bg-clip-text text-transparent mt-4`}>

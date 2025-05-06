@@ -17,7 +17,7 @@ const font = Roboto_Mono({
 
 const PricingCard = ({ pricingDetails }: { pricingDetails: PricingType }) => {
   return (
-    <div
+    <div id='#pricing'
       className={`
         w-full  xl:max-w-md max-w-[450px] h-[500px] p-6 rounded-2xl border border-white/10 backdrop-blur-xl
         bg-gradient-to-br from-yellow-100/10 via-white/5 to-transparent

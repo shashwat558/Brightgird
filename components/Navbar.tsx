@@ -11,19 +11,19 @@ import {AnimatePresence, motion} from "framer-motion";
 const navLinks = [
     {
         name: "Work",
-        link: "/work"
+        link: "#work"
     },
     {
-        name: "About us",
-        link: "/about-us"
+        name: "Why choose us",
+        link: "#why-choose-us"
     },
     {
         name: "Pricing",
-        link: "/pricing"
+        link: "#pricing"
     },
     {
         name: "Contact",
-        link: "/contact"
+        link: "#contact"
     }
 ]
 
@@ -69,7 +69,7 @@ const Navbar = () => {
           <div className='flex justify-between items-center bg-transparent'>
             <div className='flex items-center gap-5 '>
                 {/* <Image src={"/logo.png"} alt='logo' width={100} height={100}/> */}
-                <h1 className={`text-2xl font-bold text-center mb-1`}>Sol.</h1>
+                <Link href={"/"} className={`text-2xl font-bold text-center mb-2`}>Sol.</Link>
                 
 
                 <div className='flex items-center gap-10 max-sm:hidden'>
