@@ -12,7 +12,7 @@ const socialLinks = [
   { icon: <Github />, url: 'https://github.com/shashwat558' },
   
   { icon: <Twitter />, url: 'https://x.com/shashwatj26' },
-  { icon: <Mail />, url: 'mailto:jainshashwat528@gmail.com' },
+  { icon: <Mail />, url: 'mailto:'brightgrid112@gmail.com' },
 ]
 
 const Footer = () => {
