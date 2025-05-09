@@ -69,7 +69,7 @@ const Navbar = () => {
           <div className='flex justify-between items-center bg-transparent'>
             <div className='flex items-center gap-5 '>
                 {/* <Image src={"/logo.png"} alt='logo' width={100} height={100}/> */}
-                <Link href={"/"} className={`text-2xl font-bold text-center mb-2`}>BrightEdge</Link>
+                <Link href={"/"} className={`text-2xl font-bold text-center mb-2`}>BrightGrid</Link>
                 
 
                 <div className='flex items-center gap-10 max-sm:hidden'>
